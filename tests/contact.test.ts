@@ -11,11 +11,11 @@ const req = (body: unknown, headers: Record<string, string> = {}) =>
     body: typeof body === "string" ? body : JSON.stringify(body),
   });
 const env = process.env as Record<string, string | undefined>;
-const live = () => Object.assign(env, { CONTACT_PROVIDER: "resend", RESEND_API_KEY: "k", CONTACT_FROM_EMAIL: "a@x.dev", CONTACT_TO_EMAIL: "b@x.dev", CONTACT_DEV_MOCK: "false", NODE_ENV: "test" });
+const live = () => Object.assign(env, { CONTACT_PROVIDER: "ses", CONTACT_FROM_EMAIL: "a@x.dev", CONTACT_TO_EMAIL: "b@x.dev", CONTACT_DEV_MOCK: "false", NODE_ENV: "test" });
 
 beforeEach(() => {
   __resetMemoryRateLimit();
-  for (const k of ["CONTACT_PROVIDER", "RESEND_API_KEY", "CONTACT_FROM_EMAIL", "CONTACT_TO_EMAIL", "CONTACT_DEV_MOCK", "UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN", "KV_REST_API_URL", "KV_REST_API_TOKEN"]) delete env[k];
+  for (const k of ["CONTACT_PROVIDER", "RESEND_API_KEY", "CONTACT_FROM_EMAIL", "CONTACT_TO_EMAIL", "CONTACT_DEV_MOCK", "UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN", "KV_REST_API_URL", "KV_REST_API_TOKEN", "RATE_LIMIT_TABLE"]) delete env[k];
   env.NODE_ENV = "test";
 });
 
@@ -105,4 +105,22 @@ test("email builder keeps user text out of headers", async () => {
   const { buildEmail } = await import("../lib/email");
   const e = buildEmail({ ...ok, name: "Eve\r\nBcc: x@y.z" } as never);
   assert.ok(!/[\r\n]/.test(e.subject));
+});
+
+test("resend provider needs an API key; ses does not", async () => {
+  const { isEmailConfigured } = await import("../lib/email");
+  Object.assign(env, { CONTACT_FROM_EMAIL: "a@x.dev", CONTACT_TO_EMAIL: "b@x.dev", CONTACT_PROVIDER: "ses" });
+  assert.equal(isEmailConfigured(), true);
+  env.CONTACT_PROVIDER = "resend";
+  assert.equal(isEmailConfigured(), false);
+  env.RESEND_API_KEY = "k";
+  assert.equal(isEmailConfigured(), true);
+  delete env.RESEND_API_KEY;
+});
+
+test("a DynamoDB table counts as a distributed rate limit", async () => {
+  const { isRateLimitDistributed } = await import("../lib/rate-limit");
+  assert.equal(isRateLimitDistributed(), false);
+  env.RATE_LIMIT_TABLE = "portfolio-contact-rate-limit";
+  assert.equal(isRateLimitDistributed(), true);
 });

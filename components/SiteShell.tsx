@@ -27,7 +27,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
         <div className="container footer-meta">
           <p className="mono">© {new Date().getFullYear()} {profile.name}</p>
-          <p className="mono">Built with Next.js · Illustrations drawn in code</p>
         </div>
       </footer>
     </>

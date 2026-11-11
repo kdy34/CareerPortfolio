@@ -1,5 +1,5 @@
 import { LIMITS, validateContact, type ContactInput } from "./contact";
-import { contactAvailability, sendWithResend } from "./email";
+import { contactAvailability, sendContactEmail } from "./email";
 import { checkRateLimit, hashKey, isRateLimitDistributed } from "./rate-limit";
 
 /**
@@ -16,7 +16,7 @@ const json = (body: unknown, status = 200, headers: Record<string, string> = {})
     headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...headers },
   });
 
-export async function handleContact(req: Request, deps: ContactDeps = { send: sendWithResend }) {
+export async function handleContact(req: Request, deps: ContactDeps = { send: sendContactEmail }) {
   const mode = contactAvailability();
   if (mode === "unavailable") return json({ ok: false, error: "unavailable" }, 503);
   if (mode === "live" && process.env.NODE_ENV === "production" && !isRateLimitDistributed()) {

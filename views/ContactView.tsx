@@ -21,7 +21,7 @@ export function ContactView({ mode }: { mode: ContactMode }) {
           <h2 id="form-title" className="h3">Send a message</h2>
           <ContactForm mode={mode} />
           <p className="privacy muted">
-            <strong>Privacy:</strong> this form collects your name, email, and message and forwards them to me by email through an email provider (Resend) so I can reply. The site doesn’t keep a copy of your message or use it for marketing. A hashed form of your IP address is kept for about ten minutes only to limit repeated submissions.
+            <strong>Privacy:</strong> this form collects your name, email, and message and forwards them to me by email through Amazon Simple Email Service (SES) so I can reply. The site doesn’t keep a copy of your message or use it for marketing. A hashed form of your IP address is kept for about ten minutes only to limit repeated submissions.
           </p>
         </section>
 

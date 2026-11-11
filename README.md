@@ -8,7 +8,7 @@ Personal portfolio of an AI Engineering graduate student in the Washington, DC a
 
 <p align="center"><img src="docs/screenshot-mobile.png" alt="CareerGENAI case study on mobile" width="300"></p>
 
-**Stack:** Next.js (App Router) · TypeScript · React · plain CSS design tokens · Resend (contact email) · Upstash Redis (rate limiting) · Vercel
+**Stack:** Next.js (App Router) · TypeScript · React · plain CSS design tokens · AWS Amplify Hosting · Route 53 · Amazon SES (contact email) · DynamoDB (rate limiting)
 
 **Highlights**
 - Content lives in typed modules (`content/en`), so projects, roles and links change without touching layout code; ready for a Turkish locale.
@@ -73,19 +73,16 @@ scripts/preview/        Builds a single-file static preview from the same compon
 ## Contact form
 
 - Fields: name, email, message. Server validation (lengths, email format), 8 KB body limit, JSON-only, honeypot field.
-- Rate limit: Upstash Redis REST (fixed window, hashed IP). Without Upstash, production returns 503 rather than run an unreliable per-instance limit; development uses an in-memory limit.
-- Email: Resend REST API, plain text only, fixed recipient, `reply_to` = the validated visitor email. Message bodies and secrets are never logged.
-- No message storage. Success means the provider accepted the message (the UI says “received”, not “delivered”).
-- If credentials are missing in production the form renders disabled with a notice. `CONTACT_DEV_MOCK=true` (dev only) accepts messages without sending.
+- Rate limit: DynamoDB fixed window keyed by a hashed IP (TTL cleans up). Upstash Redis also supported. Without either, production returns 503 rather than run an unreliable per-instance limit; development uses an in-memory limit.
+- Email: Amazon SES v2, plain text only, fixed recipient, `ReplyTo` = the validated visitor email. Credentials come from the Amplify compute role, so no AWS keys live in the app. Message bodies and secrets are never logged.
+- No message storage. Success means SES accepted the message (the UI says “received”, not “delivered”).
+- If configuration is missing in production the form renders disabled with a notice. `CONTACT_DEV_MOCK=true` (dev only) accepts messages without sending.
 
-## Deploy (Vercel)
+## Deploy (AWS)
 
-1. Push to a private GitHub repo and import it in Vercel (framework: Next.js).
-2. In Resend: verify your domain, create an API key.
-3. In Vercel → Marketplace: add Upstash Redis (sets `UPSTASH_REDIS_REST_URL` / `_TOKEN`).
-4. Set env vars from `.env.example` for Production: `CONTACT_PROVIDER=resend`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, `NEXT_PUBLIC_SITE_URL`.
-5. Deploy a preview, send yourself a test message, check `/resume` print, check on a phone.
-6. Launch: add the domain, then set `NEXT_PUBLIC_SITE_INDEXABLE=true` and redeploy. Until then robots.txt and meta robots block indexing; Vercel preview deployments always send `X-Robots-Tag: noindex`.
+Step-by-step guide: **[docs/DEPLOY-AWS.md](docs/DEPLOY-AWS.md)** (Amplify Hosting, Route 53, SES, DynamoDB, IAM compute role). Build settings live in `amplify.yml`.
+
+Indexing stays off until `NEXT_PUBLIC_SITE_INDEXABLE=true`: robots.txt, meta robots, and an `X-Robots-Tag` header all block it.
 
 **Before launch:** work through `REVIEW.md`.
 

@@ -2,7 +2,7 @@
   "name": "kdy-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio of Kutay Deniz Yazicioglu — Next.js App Router, TypeScript, CSS tokens.",
+  "description": "Portfolio of Kutay Deniz Yazicioglu: Next.js App Router, TypeScript, CSS tokens. Hosted on AWS Amplify.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,11 +13,15 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
     "preview:static": "node scripts/preview/build.mjs"
   },
-  "engines": { "node": ">=20.9" },
+  "engines": {
+    "node": ">=20.9"
+  },
   "dependencies": {
     "next": "^16.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "@aws-sdk/client-sesv2": "^3.700.0",
+    "@aws-sdk/client-dynamodb": "^3.700.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

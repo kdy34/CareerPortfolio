@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   async headers() {
     const headers = [{ source: "/(.*)", headers: securityHeaders }];
-    // Keep Vercel preview deployments out of search results.
-    if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
+    // Keep every deployment out of search results until launch is switched on.
+    if (process.env.NEXT_PUBLIC_SITE_INDEXABLE !== "true") {
       headers.push({ source: "/(.*)", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] });
     }
     return headers;
