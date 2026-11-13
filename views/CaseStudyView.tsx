@@ -132,7 +132,7 @@ export function CaseStudyView({ project }: { project: Project }) {
         </section>
 
         <section aria-labelledby="s-next" className="case-section">
-          <h2 id="s-next" className="case-h">What I’d explore next</h2>
+          <h2 id="s-next" className="case-h">What I would explore next</h2>
           <ul className="prose list">
             {project.next.map((c) => (
               <li key={c}>{c}</li>

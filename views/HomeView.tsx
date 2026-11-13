@@ -46,7 +46,7 @@ export function HomeView() {
             ))}
           </ul>
           <a href="#selected-work" className="scroll-cue mono">
-            See what I’ve built <span aria-hidden="true" className="scroll-cue-line" />
+            See what I have built <span aria-hidden="true" className="scroll-cue-line" />
           </a>
         </div>
       </section>
@@ -135,11 +135,11 @@ export function HomeView() {
 
       <section className="section cta-final" aria-labelledby="cta-title">
         <div className="container cta-final-inner">
-          <h2 id="cta-title" className="display-sm">Let’s talk about what you’re building.</h2>
-          <p className="lede">Hiring for AI or data roles, exploring a research question, or need an early prototype? I’d like to hear about it.</p>
+          <h2 id="cta-title" className="display-sm">Get in touch</h2>
+          <p className="lede">I am open to opportunities in AI engineering, data science, and cloud computing, and to research collaboration.</p>
           <div className="cta-row">
             <Link href="/contact" className="btn btn-primary">
-              Get in touch
+              Send a message
             </Link>
             <Link href="/resume" className="btn btn-ghost">
               View résumé

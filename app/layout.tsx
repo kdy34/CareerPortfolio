@@ -16,7 +16,7 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: { default: `${profile.name} · AI Engineering & Data Science`, template: `%s · ${profile.name}` },
+  title: { default: `${profile.name} · AI Engineering, Data Science & Cloud`, template: `%s · ${profile.name}` },
   description,
   applicationName: profile.name,
   authors: [{ name: profile.name }],

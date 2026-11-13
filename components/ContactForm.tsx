@@ -68,13 +68,13 @@ export function ContactForm({ mode }: { mode: ContactMode }) {
         setStatus("error");
         setErrorText(
           code === "rate_limited"
-            ? "You’ve sent several messages in a short time. Please wait a few minutes and try again."
-            : "Your message couldn’t be sent. Please try again.",
+            ? "You have sent several messages in a short time. Please wait a few minutes and try again."
+            : "Your message could not be sent. Please try again.",
         );
       }
     } catch {
       setStatus("error");
-      setErrorText("Your message couldn’t be sent. Please try again.");
+      setErrorText("Your message could not be sent. Please try again.");
     } finally {
       requestAnimationFrame(() => statusRef.current?.focus());
     }
@@ -100,7 +100,7 @@ export function ContactForm({ mode }: { mode: ContactMode }) {
         <p id={`${uid}-mode`} className={`form-mode mode-${mode}`}>
           {mode === "preview" && "Preview mode: nothing is sent from this page. Submissions are simulated so you can review each state. Include #fail in the message to see the error state."}
           {mode === "mock" && "Development mock: the server accepts messages but does not send email."}
-          {mode === "unavailable" && "The contact form isn’t available yet. Please use the links on this page in the meantime."}
+          {mode === "unavailable" && "The contact form is not available yet. Please use the links on this page in the meantime."}
         </p>
       )}
 

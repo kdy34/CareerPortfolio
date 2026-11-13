@@ -4,7 +4,7 @@ export const research = {
   question:
     "How vulnerable are cloud-deployed LLM applications to prompt injection, and which defense-in-depth strategies reduce attack success with minimal performance overhead?",
   intro:
-    "I’m studying how layered safeguards can protect cloud-deployed LLM applications while keeping them responsive. The project asks how to measure defensive effectiveness and latency together, so a safeguard can be judged against the constraints of a real application.",
+    "I am studying how layered safeguards can protect cloud-deployed LLM applications while keeping them responsive. The project asks how to measure defensive effectiveness and latency together, so a safeguard can be judged against the constraints of a real application.",
   motivation: [
     "LLM features are moving from demos into production services that read email, documents, and web pages. Any of that text can carry instructions the application never intended to follow.",
     "Most defenses are evaluated on whether they stop an attack. In a deployed service, a defense that adds noticeable latency or blocks legitimate requests also has a cost. I want both sides of that tradeoff on the same chart.",

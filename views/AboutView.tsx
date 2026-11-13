@@ -27,15 +27,21 @@ export function AboutView() {
       <div className="container about-body">
         <div className="prose about-prose">
           <p>
-            I’m {profile.name}, an AI Engineering graduate student at Bay Atlantic University in Washington, DC. I studied software engineering at Bahçeşehir University in Istanbul, and an exchange year brought me to Washington before I returned for my master’s. That path gave me two ways into AI work. I care about what a model can do, and I care about the software that makes its output useful.
+            I am {profile.name}, a graduate student in Artificial Intelligence Engineering at Bay Atlantic University in Washington, DC. I hold a B.Sc. in Software Engineering from Bahçeşehir University in Istanbul. An exchange year at Bay Atlantic University first brought me to Washington, and I returned for my master’s degree after graduating.
           </p>
           <p>
-            At Panasonic, I worked on business analysis and ERP data workflows. At Huawei, I gained experience with cloud infrastructure. In my own and academic projects, I’ve explored how a career tool can turn a résumé into a learning plan, how optimization can support relocation matching, and how a robot can respond to visitors on campus.
+            My experience spans AI, data science, and cloud computing. As a Business Analyst Intern at Panasonic, I automated ERP data validation with SQL and Python, which saved more than ten hours of manual work each week and improved reporting precision by 30 percent. As a Cloud Engineer Intern at Huawei, I worked with Huawei Cloud services such as ECS, EVS, VPC, and IAM, and built Python log-analysis tools that reduced operational overhead by 15 percent for a high-traffic application.
           </p>
           <p>
-            Student leadership and volunteering are part of how I stay involved beyond my classes. As Student Government Association vice president, I’ve focused on listening to student feedback and making it easier for students to participate. I bring that same habit to technical projects by asking who will use a system, what they need from it, and how we’ll know it helped.
+            My projects span machine learning, LLM-powered applications, and scalable system design. CareerGENAI is an LLM-powered career mentor that analyzes résumés, identifies skill gaps, and generates learning roadmaps, built on a microservice-based architecture with FastAPI and containerized services. In my undergraduate capstone, BECAYIS, I worked on nature-inspired optimization for matching civil servants who want to relocate. In my graduate research, I am studying how layered safeguards can protect cloud-deployed LLM applications from prompt injection.
           </p>
-          <p className="muted">I work in English and Turkish, and I’m learning Spanish.</p>
+          <p>
+            Beyond technical work, I have developed leadership and communication skills through student government and public-facing volunteering in Washington, DC. As Vice President of the Student Government Association, I represent students in campus governance and help turn their feedback into action. I also volunteer in guest experience at the International Spy Museum. Earlier, as Vice President of the IEEE student branch at Bahçeşehir University, I helped organize workshops, hackathons, and summits.
+          </p>
+          <p>
+            I am focused on building practical AI-driven solutions with measurable impact and real business value. I care about what a model can do, and just as much about the software, data, and cloud infrastructure that make its output useful.
+          </p>
+          <p className="muted">I work in English and Turkish, and I am learning Spanish.</p>
         </div>
 
         <section aria-labelledby="path" className="about-section">

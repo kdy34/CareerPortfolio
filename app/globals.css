@@ -1909,12 +1909,6 @@ main:focus {
   position: relative;
   padding-left: 1rem;
 }
-.r-item ul li::before {
-  content: "–";
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-}
 .r-skills {
   display: grid;
   gap: var(--s2);
@@ -2217,5 +2211,51 @@ main:focus {
   .project-card:hover,
   .project-card:focus-within {
     transform: none;
+  }
+}
+
+/* Résumé page mirroring the PDF */
+.resume-head.centered {
+  text-align: center;
+  justify-items: center;
+}
+.resume-contact {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.resume-contact a {
+  color: var(--cyan);
+}
+.resume-headline {
+  font-weight: 600;
+  color: var(--text) !important;
+}
+.r-right {
+  text-align: right;
+  margin-top: -2px;
+}
+.resume section > p + p {
+  margin-top: var(--s2);
+}
+.r-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+.r-list li + li {
+  margin-top: 2px;
+}
+.r-list li::before,
+.r-item ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+.resume .r-item h3 a {
+  text-decoration: none;
+}
+@media print {
+  .resume-contact a {
+    color: #0b1020;
   }
 }

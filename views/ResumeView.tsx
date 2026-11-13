@@ -1,25 +1,16 @@
 import Link from "next/link";
-import { credentials, education, profile, projects, roles, skills } from "@/content";
+import { profile, resumeDocument as r } from "@/content";
 import { PrintButton } from "@/components/PrintButton";
 
+/** Mirrors the PDF résumé word for word (phone number left off the web page). */
 export function ResumeView() {
-  const work = roles.filter((r) => r.group === "work");
-  const lead = roles.filter((r) => r.group === "leadership");
-  const comm = roles.filter((r) => r.group === "community" || r.group === "development");
-  const links = [
-    profile.links.linkedin && { label: "LinkedIn", href: profile.links.linkedin, text: profile.links.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") },
-    profile.links.github && { label: "GitHub", href: profile.links.github, text: profile.links.github.replace(/^https?:\/\//, "") },
-    profile.links.medium && { label: "Medium", href: profile.links.medium, text: profile.links.medium.replace(/^https?:\/\//, "") },
-    profile.links.email && { label: "Email", href: `mailto:${profile.links.email}`, text: profile.links.email },
-  ].filter(Boolean) as { label: string; href: string; text: string }[];
-
   return (
     <div className="container resume-wrap">
       <div className="resume-toolbar no-print">
-        <p className="mono muted">Web résumé</p>
+        <p className="mono muted">Résumé</p>
         <div className="cta-row">
           {profile.links.resumePdf && (
-            <a href={profile.links.resumePdf} className="btn btn-ghost btn-small" download>
+            <a href={profile.links.resumePdf} className="btn btn-primary btn-small" download>
               Download PDF
             </a>
           )}
@@ -28,130 +19,114 @@ export function ResumeView() {
       </div>
 
       <article className="resume" aria-labelledby="r-name">
-        <header className="resume-head">
-          <h1 id="r-name">{profile.name}</h1>
-          <p>AI Engineer · Data and cloud focused · {profile.location}</p>
-          {links.length > 0 && (
-            <ul className="resume-links">
-              {links.map((l) => (
-                <li key={l.label}>
-                  <a href={l.href}>
-                    <span className="mono">{l.label}</span> {l.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+        <header className="resume-head centered">
+          <h1 id="r-name">{r.name}</h1>
+          <p className="resume-contact">
+            <span>{r.location}</span>
+            <span aria-hidden="true"> • </span>
+            <a href={`mailto:${r.email}`}>{r.email}</a>
+            {r.links.map((l) => (
+              <span key={l.label}>
+                <span aria-hidden="true"> • </span>
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              </span>
+            ))}
+          </p>
+          <p className="resume-headline">{r.headline}</p>
         </header>
 
-        <section aria-labelledby="re-edu">
-          <h2 id="re-edu">Education</h2>
-          {education.map((e) => (
-            <div key={e.school} className="r-item">
+        <section aria-labelledby="re-sum">
+          <h2 id="re-sum">Summary</h2>
+          <p>{r.summary}</p>
+        </section>
+
+        <section aria-labelledby="re-exp">
+          <h2 id="re-exp">Professional Experience</h2>
+          {r.experience.map((e) => (
+            <div key={e.title} className="r-item">
               <div className="r-line">
-                <h3>{e.degree}</h3>
-                <span className="r-date">{e.period}</span>
+                <h3>{e.title}</h3>
+                <span className="r-date">{e.dates}</span>
               </div>
-              <p className="r-org">
-                {e.school} · {e.place}
-              </p>
+              <p className="r-org r-right">{e.place}</p>
               <ul>
-                {e.notes.map((n) => (
-                  <li key={n}>{n}</li>
+                {e.bullets.map((b) => (
+                  <li key={b}>{b}</li>
                 ))}
               </ul>
             </div>
           ))}
         </section>
 
-        <section aria-labelledby="re-exp">
-          <h2 id="re-exp">Experience</h2>
-          {work.map((r) => (
-            <RoleItem key={r.org + r.title} r={r} />
+        <section aria-labelledby="re-edu">
+          <h2 id="re-edu">Education</h2>
+          {r.education.map((e) => (
+            <div key={e.school} className="r-item">
+              <div className="r-line">
+                <h3>{e.school}</h3>
+                <span className="r-date">{e.dates}</span>
+              </div>
+              <div className="r-line">
+                <p className="r-org">{e.degree}</p>
+                <p className="r-org">{e.note}</p>
+              </div>
+            </div>
           ))}
         </section>
 
         <section aria-labelledby="re-proj">
-          <h2 id="re-proj">Selected projects</h2>
-          {projects.map((p) => (
-            <div key={p.slug} className="r-item">
-              <div className="r-line">
-                <h3>
-                  <Link href={`/work/${p.slug}`}>{p.title}</Link> <span className="r-sub">· {p.subtitle}</span>
-                </h3>
-                <span className="r-date">{p.type}</span>
-              </div>
-              <p>{p.card}</p>
-              <p className="r-org">My role: {p.role}. {p.tech.join(", ")}.</p>
+          <h2 id="re-proj">Projects</h2>
+          {r.projects.map((p) => (
+            <div key={p.title} className="r-item">
+              <h3>
+                <Link href={`/work/${p.slug}`}>{p.title}</Link>
+              </h3>
+              <ul>
+                {p.bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </section>
-
-        <section aria-labelledby="re-lead">
-          <h2 id="re-lead">Leadership</h2>
-          {lead.map((r) => (
-            <RoleItem key={r.org + r.title} r={r} />
           ))}
         </section>
 
         <section aria-labelledby="re-skills">
-          <h2 id="re-skills">Technical skills</h2>
-          <dl className="r-skills">
-            {skills.map((s) => (
-              <div key={s.group}>
-                <dt>{s.group}</dt>
-                <dd>{s.items.join(", ")}</dd>
-              </div>
-            ))}
-            <div>
-              <dt>Languages</dt>
-              <dd>{profile.languages.join(", ")}</dd>
-            </div>
-          </dl>
+          <h2 id="re-skills" className="sr-only">
+            Skills
+          </h2>
+          <p>
+            <strong>Technical Skills:</strong> {r.technicalSkills}
+          </p>
+          <p>
+            <strong>Core Competencies:</strong> {r.coreCompetencies}
+          </p>
         </section>
 
-        <section aria-labelledby="re-cred">
-          <h2 id="re-cred">Certifications and courses</h2>
-          <ul className="r-creds">
-            {credentials.map((c) => (
-              <li key={c.name}>
-                <strong>{c.name}</strong> · {c.issuer} · {c.date} <span className="r-kind">({c.kind.toLowerCase()})</span>
-              </li>
+        <section aria-labelledby="re-cert">
+          <h2 id="re-cert">Certifications</h2>
+          <ul className="r-list">
+            {r.certifications.map((c) => (
+              <li key={c}>{c}</li>
             ))}
           </ul>
         </section>
 
-        <section aria-labelledby="re-comm">
-          <h2 id="re-comm">Community and professional development</h2>
-          <ul className="r-creds">
-            {comm.map((r) => (
-              <li key={r.org}>
-                <strong>{r.title}</strong>, {r.org}
-                {r.period && ` · ${r.period}`}
-              </li>
+        <section aria-labelledby="re-vol">
+          <h2 id="re-vol">Volunteering</h2>
+          <ul className="r-list">
+            {r.volunteering.map((c) => (
+              <li key={c}>{c}</li>
             ))}
           </ul>
+        </section>
+
+        <section aria-labelledby="re-lang">
+          <h2 id="re-lang">Languages</h2>
+          <p>{r.languages}</p>
         </section>
       </article>
-    </div>
-  );
-}
-
-function RoleItem({ r }: { r: (typeof roles)[number] }) {
-  return (
-    <div className="r-item">
-      <div className="r-line">
-        <h3>{r.title}</h3>
-        <span className="r-date">{r.period}</span>
-      </div>
-      <p className="r-org">
-        {r.org} · {r.place}
-      </p>
-      <ul>
-        {r.points.map((p) => (
-          <li key={p}>{p}</li>
-        ))}
-      </ul>
     </div>
   );
 }

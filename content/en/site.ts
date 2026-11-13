@@ -5,13 +5,13 @@ export const profile: SiteProfile = {
   shortMark: "KD",
   role: "AI Engineering graduate student",
   location: "Washington, DC area",
-  eyebrow: "AI Engineering · Data Science · Washington, DC area",
+  eyebrow: "AI Engineering · Data Science · Cloud Computing · Washington, DC area",
   headline: "From raw data to working AI systems.",
   intro:
-    "I’m an AI Engineering graduate student at Bay Atlantic University. I build machine learning and LLM applications and bring them to life with data pipelines, APIs, and cloud software.",
+    "I am an AI Engineering graduate student at Bay Atlantic University. I build machine learning and LLM applications and bring them to life with data pipelines, APIs, and cloud software.",
   proof: [
     { label: "M.S. AI Engineering", value: "Bay Atlantic University" },
-    { label: "Past internships", value: "Panasonic and Huawei" },
+    { label: "Experience", value: "Panasonic and Huawei" },
     { label: "Campus leadership", value: "Student Government Association" },
     { label: "Graduate GPA 3.95", value: "President’s List, Fall 2025" },
   ],
@@ -52,24 +52,9 @@ export const capabilities = [
   },
 ] as const;
 
-export const faq = [
-  {
-    q: "What opportunities are you interested in?",
-    a: "Applied AI and machine learning, data science, and software or cloud engineering roles where I can build and evaluate real systems.",
-  },
-  {
-    q: "Can I see your code or demos?",
-    a: "I link public code, demos, and write-ups from the relevant project pages when available. If you’re interested in a specific project, send me a note.",
-  },
-  {
-    q: "Are you open to research or project collaboration?",
-    a: "Yes. Tell me what question you’re exploring, what stage the project is in, and how you’d like to collaborate.",
-  },
-];
-
 export const hobbies = [
-  { title: "Travel", body: "I travel solo and on a student budget, usually two to four nights per city, and go for local food and everyday life over landmarks. I’ve been to more than a dozen countries so far, and I write about budget travel on Medium.", signal: "cyan" },
-  { title: "Kiteboarding", body: "I kiteboard whenever I can get to wind and water. It’s a sport of reading conditions and adjusting quickly.", signal: "mint" },
+  { title: "Travel", body: "I travel solo and on a student budget, usually two to four nights per city, and go for local food and everyday life over landmarks. I have been to more than a dozen countries so far, and I write about budget travel on Medium.", signal: "cyan" },
+  { title: "Kiteboarding", body: "I kiteboard whenever I can get to wind and water. It is a sport of reading conditions and adjusting quickly.", signal: "mint" },
   { title: "Swimming", body: "Swimming is how I reset and stay active during busy semesters.", signal: "iris" },
   { title: "Road trips", body: "Short, efficient drives with time for small towns, local spots, and whatever is worth a detour.", signal: "cyan" },
   { title: "Reading", body: "I read a bit of everything, from technical books to novels.", signal: "iris" },

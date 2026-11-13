@@ -7,8 +7,8 @@ export function WorkView() {
       <header className="page-hero">
         <div className="container">
           <p className="eyebrow mono">Work</p>
-          <h1 className="display">Things I’ve built and studied.</h1>
-          <p className="lede">Featured case studies first, then smaller projects and course experiments. Every item is labeled by type so it’s clear what was personal, team, or coursework.</p>
+          <h1 className="display">Things I have built and studied.</h1>
+          <p className="lede">Featured case studies first, then public code and course experiments. Every item is labeled by type, so it is clear what was personal, team, or coursework.</p>
         </div>
       </header>
 
@@ -23,6 +23,7 @@ export function WorkView() {
         </div>
       </section>
 
+      {moreProjects.length > 0 && (
       <section className="section" aria-labelledby="more">
         <div className="container">
           <header className="section-head">
@@ -35,6 +36,7 @@ export function WorkView() {
           </ul>
         </div>
       </section>
+      )}
 
       <section className="section" aria-labelledby="code">
         <div className="container">
@@ -62,7 +64,7 @@ export function WorkView() {
         <div className="container">
           <header className="section-head">
             <h2 id="labs" className="h2">Selected experiments</h2>
-            <p className="muted section-intro">Course labs where I practiced a method end to end. They’re smaller in scope than the case studies and use course or public datasets.</p>
+            <p className="muted section-intro">Course labs where I practiced a method end to end. They are smaller in scope than the case studies and use course or public datasets.</p>
           </header>
           <ul className="exp-grid">
             {experiments.map((e) => (

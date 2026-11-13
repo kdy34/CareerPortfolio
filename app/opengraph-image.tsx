@@ -9,7 +9,7 @@ export default function OgImage() {
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, background: "#F6F7F9", color: "#0F1E36", fontFamily: "sans-serif" }}>
-        <div style={{ display: "flex", fontSize: 26, color: "#0B5CAD", letterSpacing: 2 }}>AI ENGINEERING · DATA SCIENCE · WASHINGTON, DC AREA</div>
+        <div style={{ display: "flex", fontSize: 26, color: "#0B5CAD", letterSpacing: 2 }}>AI ENGINEERING · DATA SCIENCE · CLOUD COMPUTING · WASHINGTON, DC AREA</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 40, color: "#4A5568" }}>{profile.name}</div>
           <div style={{ fontSize: 84, fontWeight: 700, lineHeight: 1.05, marginTop: 16 }}>From raw data to working AI systems.</div>

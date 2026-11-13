@@ -213,16 +213,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const moreProjects: Experiment[] = [
-  {
-    title: "Urban Risk DC",
-    type: "Personal project",
-    methods: "XGBoost · FastAPI · React · Mapbox",
-    summary:
-      "An analysis of Washington, DC traffic crash records with a gradient-boosted model, served through a FastAPI backend and explored on a Mapbox map.",
-    tags: ["ML", "Geospatial", "Full stack"],
-  },
-];
+export const moreProjects: Experiment[] = [];
 
 export const publicCode: Experiment[] = [
   {
