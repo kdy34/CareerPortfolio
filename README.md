@@ -87,7 +87,6 @@ Step-by-step guide: **[docs/DEPLOY-AWS.md](docs/DEPLOY-AWS.md)** (Amplify Hostin
 
 Indexing stays off until `NEXT_PUBLIC_SITE_INDEXABLE=true`: robots.txt, meta robots, and an `X-Robots-Tag` header all block it.
 
-**Before launch:** work through `REVIEW.md`.
 
 ## Static preview
 
