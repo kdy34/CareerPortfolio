@@ -23,6 +23,7 @@ export const profile: SiteProfile = {
     medium: "https://medium.com/@DenizYazicioglu1",
     resumePdf: "/kutay-deniz-yazicioglu-resume.pdf",
   },
+  siteUrl: "https://www.kutayyazicioglu.com",
   headshot: "/images/headshot.jpg",
   availability: "",
 };

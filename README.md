@@ -2,7 +2,7 @@
 
 Personal portfolio of an AI Engineering graduate student in the Washington, DC area: case studies in LLM applications, optimization, and human–robot interaction, graduate research on prompt injection, and a printable web résumé.
 
-**Live site:** [kutay-deniz-yazicioglu.vercel.app](https://kutay-deniz-yazicioglu.vercel.app) · [LinkedIn](https://www.linkedin.com/in/kutay-deniz-yazicioglu/) · [Medium](https://medium.com/@DenizYazicioglu1)
+**Live site:** [kutayyazicioglu.com](https://www.kutayyazicioglu.com) · [LinkedIn](https://www.linkedin.com/in/kutay-deniz-yazicioglu/) · [Medium](https://medium.com/@DenizYazicioglu1)
 
 ![Homepage](docs/screenshot-home.png)
 

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { profile } from "@/content";
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || undefined;
+/** The domain in content/en/site.ts wins; the environment variable is only a fallback. */
+export const siteUrl = (profile.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/$/, "") || undefined;
 /** Indexing stays off until you set NEXT_PUBLIC_SITE_INDEXABLE=true at launch. */
 export const indexable = process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true";
 

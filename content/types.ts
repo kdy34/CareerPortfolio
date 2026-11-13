@@ -21,6 +21,8 @@ export interface SiteProfile {
   languages: string[];
   /** Leave a value empty to hide that link everywhere. */
   links: Record<LinkKind, string>;
+  /** Canonical public address (no trailing slash). Used for canonical URLs, sitemap and social cards. */
+  siteUrl: string;
   /** Optional: path under /public, e.g. "/headshot.jpg". Empty uses the KD mark. */
   headshot: string;
   /** Optional dated availability flag, e.g. "Open to Summer 2027 internships". Empty hides it. */
