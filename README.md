@@ -2,13 +2,13 @@
 
 Personal portfolio of an AI Engineering graduate student in the Washington, DC area: case studies in LLM applications, optimization, and human–robot interaction, graduate research on prompt injection, and a printable web résumé.
 
-**Live site:** _add your URL after deploying_ · [LinkedIn](https://www.linkedin.com/in/kutay-deniz-yazicioglu/) · [Medium](https://medium.com/@DenizYazicioglu1)
+**Live site:** [kutay-deniz-yazicioglu.vercel.app](https://kutay-deniz-yazicioglu.vercel.app) · [LinkedIn](https://www.linkedin.com/in/kutay-deniz-yazicioglu/) · [Medium](https://medium.com/@DenizYazicioglu1)
 
 ![Homepage](docs/screenshot-home.png)
 
 <p align="center"><img src="docs/screenshot-mobile.png" alt="CareerGENAI case study on mobile" width="300"></p>
 
-**Stack:** Next.js (App Router) · TypeScript · React · plain CSS design tokens · AWS Amplify Hosting · Route 53 · Amazon SES (contact email) · DynamoDB (rate limiting)
+**Stack:** Next.js (App Router) · TypeScript · React · plain CSS design tokens · Vercel (Hobby) · Resend (contact email) · Upstash Redis (rate limiting). An AWS setup (Amplify, SES, DynamoDB) is also supported; see docs/DEPLOY-AWS.md.
 
 **Highlights**
 - Content lives in typed modules (`content/en`), so projects, roles and links change without touching layout code; ready for a Turkish locale.
@@ -78,8 +78,11 @@ scripts/preview/        Builds a single-file static preview from the same compon
 - No message storage. Success means SES accepted the message (the UI says “received”, not “delivered”).
 - If configuration is missing in production the form renders disabled with a notice. `CONTACT_DEV_MOCK=true` (dev only) accepts messages without sending.
 
-## Deploy (AWS)
+## Deploy
 
+**Vercel (current, free):** the project `kutay-deniz-yazicioglu` deploys every push to `main`. Environment variables: `CONTACT_PROVIDER=resend`, `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, plus the Upstash `KV_REST_API_URL` / `KV_REST_API_TOKEN` that the Storage integration adds.
+
+**AWS (alternative):** 
 Step-by-step guide: **[docs/DEPLOY-AWS.md](docs/DEPLOY-AWS.md)** (Amplify Hosting, Route 53, SES, DynamoDB, IAM compute role). Build settings live in `amplify.yml`.
 
 Indexing stays off until `NEXT_PUBLIC_SITE_INDEXABLE=true`: robots.txt, meta robots, and an `X-Robots-Tag` header all block it.
