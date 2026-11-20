@@ -80,17 +80,17 @@ export const projects: Project[] = [
     title: "BECAYIS",
     subtitle: "Civil Servant Relocation Matching",
     type: "Team capstone",
-    status: "Completed capstone · platform concept",
+    status: "Completed capstone",
     period: "2025",
-    role: "Intelligent matching, backend logic, and API integration",
-    card: "A software engineering capstone exploring how optimization could support relocation matching for Turkish civil servants.",
+    role: "Led the AI work: matching algorithms and API integration",
+    card: "A software engineering capstone that matches Turkish civil servants who want to swap job locations, using particle swarm and ant colony optimization.",
     problem:
       "In Türkiye, civil servants can relocate by swapping posts with a colleague who wants the reverse move, a process called becayiş. Finding a compatible partner by hand is slow, and the search gets harder once preferences and constraints stack up.",
     tech: ["React", "Spring Boot", "PostgreSQL", "Python", "PSO", "ACO"],
     visual: "becayis",
     accent: "iris",
     overview: [
-      "BECAYIS (Biomimetic AI Supported Permutation Application) was my undergraduate capstone at Bahçeşehir University. Our team designed a relocation matching platform concept where civil servants describe where they are, where they want to go, and what they need, and the system proposes swap candidates.",
+      "BECAYIS (Biomimetic AI Supported Permutation Application) was my undergraduate capstone at Bahçeşehir University. Our team built a relocation matching platform where civil servants describe where they are, where they want to go, and what they need, and the system proposes swap candidates. I led the AI work, using a dataset of about 480 records.",
       "We explored nature-inspired (biomimetic) optimization, particle swarm and ant colony optimization, as ways to search for good matches when preferences and constraints make a simple lookup insufficient.",
     ],
     constraints: [
@@ -99,9 +99,9 @@ export const projects: Project[] = [
       "As a capstone, the work was scoped to a prototype and its design documentation, not a production service.",
     ],
     myRole: [
-      "Focused on the intelligent matching approach and the biomimetic optimization behind it.",
-      "Worked on backend logic and database planning for the matching flow.",
-      "Integrated the matching logic with the rest of the system through APIs, with system usability in mind.",
+      "Led the AI work on the platform, using a dataset of about 480 records.",
+      "Implemented the matching in Python with particle swarm optimization (PSO) and ant colony optimization (ACO).",
+      "Connected the matching service to the Spring Boot and React application through REST APIs.",
     ],
     teamNote:
       "The React frontend, Spring Boot services, database design, and the project documentation (PDD, SDD, and UML) were team efforts.",

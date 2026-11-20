@@ -19,7 +19,7 @@ export const education: Education[] = [
     period: "Aug 2020 – Jun 2025",
     notes: [
       "GPA 3.04",
-      "Capstone: BECAYIS (Biomimetic AI Supported Permutation Application), a relocation matching platform concept",
+      "Capstone: BECAYIS, a civil servant relocation matching platform where I led the AI work",
       "Exchange student at Bay Atlantic University, Washington, DC, Fall 2024 – Spring 2025",
       "Vice President, IEEE Bahçeşehir University Student Branch (Dec 2020 – Aug 2023)",
     ],
@@ -35,9 +35,9 @@ export const roles: Role[] = [
     group: "work",
     highlight: "Automated ERP data validation, saving 10+ hours a week",
     points: [
-      "Automated ERP data validation with SQL and Python, saving more than 10 hours of manual work per week and improving reporting precision by 30%.",
-      "Created system documentation and data-flow diagrams that served as the primary blueprint for ERP system upgrades.",
-      "Modeled business-process improvements from data to resolve workflow bottlenecks across departments.",
+      "Automated ERP data validation with SQL and Python, saving more than 10 hours of manual work per week and improving reporting accuracy by 30%.",
+      "Wrote system documentation and data-flow diagrams that the team used as the main reference for ERP system upgrades.",
+      "Analyzed process data to locate workflow bottlenecks between departments and proposed changes to remove them.",
     ],
   },
   {
@@ -48,9 +48,9 @@ export const roles: Role[] = [
     group: "work",
     highlight: "Python log analysis that cut operational overhead 15%",
     points: [
-      "Worked on enterprise cloud infrastructure with Huawei Cloud ECS, EVS, VPC, and IAM to improve reliability and performance for high-scale clients.",
-      "Built Python log-analysis tools that found and removed resource redundancies, reducing operational overhead by 15% for a high-traffic application.",
-      "Diagnosed and resolved infrastructure bottlenecks during troubleshooting, supporting 99.9% uptime over the internship.",
+      "Worked with Huawei Cloud services (ECS, EVS, VPC, IAM) to support and tune enterprise cloud infrastructure for large clients.",
+      "Wrote Python log-analysis tools that found redundant resources in a high-traffic application, cutting operational overhead by 15%.",
+      "Diagnosed and resolved infrastructure bottlenecks, helping maintain 99.9% uptime over the internship.",
     ],
   },
   {
@@ -100,9 +100,9 @@ export const roles: Role[] = [
     org: "International Spy Museum",
     title: "Guest Experience Volunteer",
     place: "Washington, DC",
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Sep 2026",
     group: "community",
-    points: ["Welcome and guide museum visitors."],
+    points: ["Welcomed and guided museum visitors."],
   },
   {
     org: "DevFest DC",
@@ -116,7 +116,7 @@ export const roles: Role[] = [
     org: "DC Startup & Tech Week",
     title: "Volunteer",
     place: "Washington, DC",
-    period: "2026",
+    period: "2025, 2026",
     group: "community",
     points: ["Supported event operations, including the closing day at the International Trade Center."],
   },
@@ -152,7 +152,8 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Machine learning", items: ["Python", "pandas", "NumPy", "scikit-learn", "PyTorch", "TensorFlow / Keras", "XGBoost"] },
   { group: "LLM and NLP", items: ["Gemini API", "Prompt engineering", "Structured outputs", "TF–IDF", "Topic modeling (NMF)", "Prompt-injection evaluation"] },
   { group: "Data", items: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "ArangoDB", "Redis", "Tableau", "Power BI"] },
-  { group: "Engineering", items: ["FastAPI", "REST APIs", "Microservices", "Next.js", "React", "TypeScript", "Java / Spring Boot", "Docker", "CI/CD"] },
+  { group: "Engineering", items: ["FastAPI", "REST APIs", "Microservices", "Next.js", "React", "TypeScript", "Java / Spring Boot"] },
+  { group: "MLOps and DevOps", items: ["Docker", "Kubernetes", "CI/CD", "Git / GitHub", "MLflow", "DVC", "Airflow", "Jupyter"] },
   { group: "Cloud", items: ["AWS (EBS, S3)", "Huawei Cloud (ECS, EVS, VPC, IAM)", "Oracle Cloud Infrastructure"] },
 ];
 

@@ -2259,3 +2259,24 @@ main:focus {
     color: #0b1020;
   }
 }
+
+/* Résumé v2 (Nov 2026): project/research headings, grouped skills, leadership list */
+.r-item > h3 {
+  font-family: var(--ff-body);
+  font-size: 1.02rem;
+  letter-spacing: 0;
+  font-weight: 650;
+}
+.resume .r-sub {
+  font-weight: 400;
+  color: var(--muted);
+}
+.resume section > p.r-skill + p.r-skill {
+  margin-top: 4px;
+}
+.r-list.r-plain li {
+  padding-left: 0;
+}
+.r-list.r-plain li::before {
+  content: none;
+}

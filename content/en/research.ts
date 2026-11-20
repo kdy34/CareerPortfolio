@@ -20,5 +20,7 @@ export const research = {
     { metric: "Latency overhead", detail: "Added response time per layer, measured under a cloud deployment." },
     { metric: "Effect on legitimate use", detail: "How often normal requests are blocked or degraded." },
   ],
+  scope:
+    "The paper has five chapters, from the problem statement and literature review through evaluation, and covers threat detection, load balancing, and latency overhead in cloud deployments.",
   note: "Findings will appear here once they are reviewed. Until then, this page describes the question and the planned evaluation.",
 };

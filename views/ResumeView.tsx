@@ -68,10 +68,7 @@ export function ResumeView() {
                 <h3>{e.school}</h3>
                 <span className="r-date">{e.dates}</span>
               </div>
-              <div className="r-line">
-                <p className="r-org">{e.degree}</p>
-                <p className="r-org">{e.note}</p>
-              </div>
+              <p className="r-org">{e.degree}</p>
             </div>
           ))}
         </section>
@@ -82,6 +79,7 @@ export function ResumeView() {
             <div key={p.title} className="r-item">
               <h3>
                 <Link href={`/work/${p.slug}`}>{p.title}</Link>
+                <span className="r-sub"> | {p.subtitle} | {p.tech}</span>
               </h3>
               <ul>
                 {p.bullets.map((b) => (
@@ -92,16 +90,34 @@ export function ResumeView() {
           ))}
         </section>
 
+        <section aria-labelledby="re-research">
+          <h2 id="re-research">Research</h2>
+          {r.research.map((x) => (
+            <div key={x.title} className="r-item">
+              <div className="r-line">
+                <h3>
+                  <Link href={x.href}>{x.title}</Link>
+                  <span className="r-sub"> | {x.org}</span>
+                </h3>
+                <span className="r-date">{x.dates}</span>
+              </div>
+              <p className="r-org">{x.note}</p>
+              <ul>
+                {x.bullets.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
         <section aria-labelledby="re-skills">
-          <h2 id="re-skills" className="sr-only">
-            Skills
-          </h2>
-          <p>
-            <strong>Technical Skills:</strong> {r.technicalSkills}
-          </p>
-          <p>
-            <strong>Core Competencies:</strong> {r.coreCompetencies}
-          </p>
+          <h2 id="re-skills">Technical Skills</h2>
+          {r.technicalSkills.map((g) => (
+            <p key={g.label} className="r-skill">
+              <strong>{g.label}:</strong> {g.items}
+            </p>
+          ))}
         </section>
 
         <section aria-labelledby="re-cert">
@@ -113,11 +129,14 @@ export function ResumeView() {
           </ul>
         </section>
 
-        <section aria-labelledby="re-vol">
-          <h2 id="re-vol">Volunteering</h2>
-          <ul className="r-list">
-            {r.volunteering.map((c) => (
-              <li key={c}>{c}</li>
+        <section aria-labelledby="re-lead">
+          <h2 id="re-lead">Leadership &amp; Community Involvement</h2>
+          <ul className="r-list r-plain">
+            {r.leadership.map((l) => (
+              <li key={l.role} className="r-line">
+                <span>{l.role}</span>
+                <span className="r-date">{l.dates}</span>
+              </li>
             ))}
           </ul>
         </section>

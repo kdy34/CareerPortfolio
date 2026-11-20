@@ -18,6 +18,7 @@ export function ResearchView() {
         <section aria-labelledby="r-q" className="case-section">
           <h2 id="r-q" className="case-h">Research question</h2>
           <blockquote className="question large">{research.question}</blockquote>
+          <p className="muted">{research.scope}</p>
         </section>
 
         <section aria-labelledby="r-why" className="case-section">
