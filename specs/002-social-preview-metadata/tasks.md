@@ -14,9 +14,9 @@
 
 ## Phase 4: Polish
 - [x] T006 Run tests (17/17)
-- [ ] T007 Static preview build (Vercel preview on the PR)
-- [ ] T008 Check the deployed head of /, /about, /work/careergenai and the LinkedIn Post Inspector
-- [ ] T009 Merge to main and verify production
+- [x] T007 Static preview build (Vercel preview on PR #1: success)
+- [x] T008 Check the deployed head of /, /about, /work/careergenai (og:image 1200×630, site name, locale, canonical = og:url on all three)
+- [x] T009 Merge to main and verify production
 
 ## Dependencies
 T001 → T002 → T003/T004/T005; T006–T009 last.

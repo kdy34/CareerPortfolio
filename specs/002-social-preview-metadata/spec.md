@@ -2,7 +2,7 @@
 
 **Feature Branch**: `002-social-preview-metadata`
 **Created**: 2026-11-23
-**Status**: Ready for review
+**Status**: Implemented
 **Input**: Metadata audit of www.kutayyazicioglu.com (fixing-metadata checklist)
 
 > Compact spec: small metadata fix on an existing project. No visible page content changes.
