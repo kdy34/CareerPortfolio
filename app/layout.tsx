@@ -4,24 +4,21 @@ import type { ReactNode } from "react";
 import { profile } from "@/content";
 import { PersonJsonLd } from "@/components/JsonLd";
 import { SiteShell } from "@/components/SiteShell";
-import { indexable, siteUrl } from "@/lib/seo";
+import { indexable, openGraphBase, siteDescription, siteTitle, siteUrl, twitterBase } from "@/lib/seo";
 import "./globals.css";
 
 const display = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--font-display", display: "swap" });
 const body = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-body", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin", "latin-ext"], variable: "--font-mono", display: "swap" });
 
-const description =
-  "Kutay Deniz Yazicioglu is an AI Engineering graduate student in the Washington, DC area who builds machine learning and LLM applications with data pipelines, APIs, and cloud software.";
-
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: { default: `${profile.name} · AI Engineering, Data Science & Cloud`, template: `%s · ${profile.name}` },
-  description,
+  title: { default: siteTitle, template: `%s · ${profile.name}` },
+  description: siteDescription,
   applicationName: profile.name,
   authors: [{ name: profile.name }],
-  openGraph: { type: "website", siteName: profile.name, title: profile.name, description, locale: "en_US" },
-  twitter: { card: "summary_large_image", title: profile.name, description },
+  openGraph: { ...openGraphBase, title: siteTitle, description: siteDescription },
+  twitter: { ...twitterBase, title: siteTitle, description: siteDescription },
   robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
 };
 
